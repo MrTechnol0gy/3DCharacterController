@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private bool crouching = false;
 
     public Image RunToggleUI;
+    public Image CrouchToggleUI;
 
     public Text velocityText;
 
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
 
     public void ToggleRun()
     {
-        if (playerMovement.GetMovementMode() != MovementMode.Running)
+        if (playerMovement.GetMovementMode() != MovementMode.Running && playerMovement.GetMovementMode() != MovementMode.Crouching)
         {
             playerMovement.SetMovementMode(MovementMode.Running);
             RunToggleUI.GetComponent<Image>().color = Color.green;
@@ -81,13 +82,17 @@ public class Player : MonoBehaviour
     }
     public void ToggleCrouch()
     {
-        if (crouching == false)
+        if (playerMovement.GetMovementMode() != MovementMode.Crouching && playerMovement.GetMovementMode() != MovementMode.Running)
         {
             crouching = true;
+            playerMovement.SetMovementMode(MovementMode.Crouching);
+            CrouchToggleUI.GetComponent<Image>().color = Color.green;
         }
         else 
         {
             crouching = false;
+            playerMovement.SetMovementMode(MovementMode.Walking);
+            CrouchToggleUI.GetComponent<Image>().color = Color.red;
         }
     }
     public void ToggleJump()

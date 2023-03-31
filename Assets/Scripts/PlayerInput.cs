@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour
         {
             player.ToggleRun();
         }
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.RightShift) && playerMovement.GetMovementMode() != MovementMode.Running)
         {
             player.ToggleCrouch();
         }
