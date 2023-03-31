@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t_mesh: {fileID: 1193468317}
-  walkSpeed: 3
+  walkSpeed: 2
   runSpeed: 10
   rb: {fileID: 95843799}
 --- !u!114 &95843796

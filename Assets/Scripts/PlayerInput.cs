@@ -26,7 +26,14 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             player.ToggleRun();
-
+        }
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            player.ToggleCrouch();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            player.ToggleJump();            
         }
     }
 }

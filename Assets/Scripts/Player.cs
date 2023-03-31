@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public PlayerMovement playerMovement;
 
     private Vector3 velocity;
+    private bool jumping = false;
+    private bool crouching = false;
 
     public Image RunToggleUI;
 
@@ -54,6 +56,16 @@ public class Player : MonoBehaviour
         return playerMovement.Velocity.magnitude;
     }
 
+    public bool getJump()
+    {
+        return jumping;
+    }
+
+    public bool getCrouch()
+    {
+        return crouching;
+    }
+
     public void ToggleRun()
     {
         if (playerMovement.GetMovementMode() != MovementMode.Running)
@@ -67,8 +79,27 @@ public class Player : MonoBehaviour
             RunToggleUI.GetComponent<Image>().color = Color.red;
         }
     }
-
-
-
-
+    public void ToggleCrouch()
+    {
+        if (crouching == false)
+        {
+            crouching = true;
+        }
+        else 
+        {
+            crouching = false;
+        }
+    }
+    public void ToggleJump()
+    {
+        if (jumping == false)
+        {
+            jumping = true;
+            Invoke("ToggleJump", 0.1f);
+        }
+        else 
+        {
+            jumping = false;
+        }
+    }
 }

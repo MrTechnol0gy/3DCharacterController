@@ -27,7 +27,7 @@ public class PlayerAnimationController : MonoBehaviour
 
         animator.SetFloat( "Velocity", player.getVelocity() );
         //Debug.Log(player.getVelocity());
-
-
+        animator.SetBool("Jump", player.getJump());
+        animator.SetBool("Crouch", player.getCrouch());
     }
 }
